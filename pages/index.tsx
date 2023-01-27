@@ -1,7 +1,6 @@
 import Head from "next/head";
 import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
-import Header from "pages/components/header";
 import { useMediaQuery } from "react-responsive";
 
 export default function Home() {
@@ -16,7 +15,7 @@ export default function Home() {
         <meta name="description" content="고려대학교 소프트웨어창업학회 NEXT" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Header isMobile={isMobile} initialColor={true}></Header>
+      <h2>헤더 반응 테스트용. 사라질 페이지. /home에서 시작할 예정</h2>
     </div>
   );
 }

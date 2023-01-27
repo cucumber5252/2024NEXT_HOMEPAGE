@@ -84,7 +84,7 @@ const Container = styled.div`
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  max-width: 1920px;
+  /* max-width: 1920px; */
   width: 100vw;
   margin: 0 auto;
   font-size: 1.6rem;

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { URLS } from "pages/constants/urls";
 import * as S from "styles/components/header/style";
 import LogoImg from "public/assets/logo.png";
-import BlackLogoImg from "public/assets/likelionBlackLogo.png";
+import BlackLogoImg from "public/assets/blackLogo.png";
 import { useMediaQuery } from "react-responsive";
 import { MenuOutlined } from "@ant-design/icons";
 import { Menu } from "antd";
@@ -177,7 +177,7 @@ const NavBar = () => {
                 </S.MenuContainer>
               )}
             </S.Container>
-            <S.HeaderWhiteSpace />
+            {/* <S.HeaderWhiteSpace /> */}
           </>
         )}
       </>

@@ -7,6 +7,7 @@ export const NavBarContainer = styled.div<{ scroll: boolean }>`
   align-items: center;
   justify-content: space-between;
   width: 100vw;
+  /* max-width: 1920px; */
   z-index: 10;
   position: fixed;
   box-sizing: border-box;
@@ -39,6 +40,7 @@ export const StyledNav = styled.nav<{
   color: ${({ isWhite }) => (isWhite ? THEME.WHITE : THEME.BLACK)};
   font-size: 1.6rem;
   padding: 10px;
+  transition: all 0.3s;
   ${(props) =>
     props.selected &&
     css`
@@ -47,7 +49,8 @@ export const StyledNav = styled.nav<{
       color: ${THEME.ORANGE};
     `}
   cursor: pointer;
-  &.active {
+  &:hover {
+    color: ${THEME.ORANGE};
   }
 
   & + & {

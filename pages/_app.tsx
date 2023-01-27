@@ -9,6 +9,7 @@ import Script from "next/script";
 import { useRouter } from "next/router";
 // import * as gtag from "libs/gtag";
 import Head from "next/head";
+import Header from "pages/components/header";
 // export default function App({ Component, pageProps, session }: AppProps) {
 export default function App({
   Component,
@@ -35,6 +36,7 @@ export default function App({
           <Head>
             <title>NEXT</title>
           </Head>
+          <Header></Header>
           {/* GA 설정 시작 */}
           {/* Global Site Tag (gtag.js) - Google Analytics */}
           {/* <Script
