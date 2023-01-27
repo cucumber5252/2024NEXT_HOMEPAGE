@@ -1,114 +1,216 @@
-import { useState, useEffect } from "react";
-import { useRouter } from "next/router";
+import React, { useEffect, useState } from "react";
+import { URLS } from "pages/constants/urls";
 import * as S from "styles/components/header/style";
-import Fade from "react-awesome-reveal";
-export default function Header(props: {
-  isMobile: boolean;
-  initialColor: boolean;
-}) {
-  const [click, setClick] = useState(false);
+import LogoImg from "public/assets/logo.png";
+import BlackLogoImg from "public/assets/likelionBlackLogo.png";
+import { useMediaQuery } from "react-responsive";
+import { MenuOutlined } from "@ant-design/icons";
+import { Menu } from "antd";
+import "antd/dist/reset.css";
+import { useRouter } from "next/router";
+
+const Links = [
+  { name: "HOME", path: URLS.HOME },
+  { name: "ABOUT US", path: URLS.ABOUT_US },
+  { name: "ACTIVITIES", path: URLS.ACTIVITIES },
+  { name: "JOIN US", path: URLS.JOIN_US },
+];
+
+const NavBar = () => {
+  const router = useRouter();
+  const pathname = router.pathname;
+  const [isOpen, setIsOpen] = useState(false);
   const [scrollPosition, setScrollPosition] = useState(0);
   const [fullscreen, setFullscreen] = useState<number>();
-  const router = useRouter();
+  const logoSrc = pathname === URLS.HOME ? LogoImg : BlackLogoImg;
+  const [openKeys, setOpenKeys] = useState(["sub1"]);
+  const { SubMenu } = Menu;
+  const [shouldRender, setShouldRender] = useState(false);
+  const rootSubmenuKeys = ["sub1", "sub2"];
   const menuClick = () => {
-    setClick(!click);
-    console.log(click);
+    setIsOpen(!isOpen);
+    console.log(isOpen);
   };
-
   const updateScroll = () => {
     setScrollPosition(window.scrollY || document.documentElement.scrollTop);
   };
+  const isMobile = useMediaQuery({
+    query: "(max-width:820px)",
+  });
 
   useEffect(() => {
     setFullscreen(window.innerHeight);
     window.addEventListener("scroll", updateScroll);
+    console.log(pathname, URLS.HOME);
   }, []);
-  return (
-    <div>
-      {fullscreen && (
-        <S.HeaderContainer
-          scroll={
-            scrollPosition > fullscreen || props.initialColor ? true : false
-          }
-        >
-          {/* {props.isMobile && ( */}
-          <S.HeaderWrapper>
-            <div style={{ width: "5rem" }}></div>
-            <S.Logo
-              color={
-                scrollPosition > fullscreen || props.initialColor
-                  ? "black"
-                  : "transparent"
-              }
-              click={click}
-              onClick={() => {
-                router.push("/");
-              }}
-            >
-              NEXT
-            </S.Logo>
-            <S.HamburgerContainer
-              onClick={() => {
-                setClick(!click);
-                console.log(click);
-              }}
-              click={click}
-              color={
-                scrollPosition > fullscreen || props.initialColor
-                  ? "black"
-                  : "white"
-              }
-            >
-              <span></span>
-              <span></span>
-              <span></span>
-            </S.HamburgerContainer>
-          </S.HeaderWrapper>
-          {/* )} */}
 
-          <S.HeaderPage click={click}>
-            {click && (
-              <S.MenuContainer isMobile={props.isMobile}>
-                <div
+  const onOpenChange = (keys: any) => {
+    const latestOpenKey = keys.find((key: any) => openKeys.indexOf(key) === -1);
+    if (rootSubmenuKeys.indexOf(latestOpenKey) === -1) {
+      setOpenKeys(keys);
+    } else {
+      setOpenKeys(latestOpenKey ? [latestOpenKey] : []);
+    }
+  };
+  const handleAnimationEnd = () => {
+    if (!isOpen) {
+      setShouldRender(false);
+    }
+  };
+  useEffect(() => {
+    if (isOpen) {
+      setShouldRender(isOpen);
+    }
+  }, [isOpen]);
+  if (isMobile) {
+    return (
+      <>
+        {fullscreen && (
+          <>
+            <S.Container isOpen={isOpen}>
+              <S.Header>
+                <S.NavBarLogo
+                  src={LogoImg.src}
+                  onClick={() => router.push("home")}
+                  alt="NEXT 로고"
+                />
+                <S.HamburgerContainer
                   onClick={() => {
-                    router.push("/home");
+                    setIsOpen((prev) => !prev);
                   }}
+                  click={isOpen}
+                  isWhite={pathname === URLS.HOME}
                 >
-                  HOME
-                </div>
-                <div
-                  onClick={() => {
-                    router.push("/about");
-                  }}
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </S.HamburgerContainer>
+              </S.Header>
+              {shouldRender && (
+                <S.MenuContainer
+                  isOpen={isOpen}
+                  onAnimationEnd={handleAnimationEnd}
                 >
-                  ABOUT US
-                </div>
-                <div
-                  onClick={() => {
-                    router.push("/activities");
-                  }}
-                >
-                  ACTIVITIES
-                </div>
-                <div
-                  onClick={() => {
-                    router.push("/people");
-                  }}
-                >
-                  PEOPLE
-                </div>
-                <div
-                  onClick={() => {
-                    router.push("/join");
-                  }}
-                >
-                  JOIN US
-                </div>
-              </S.MenuContainer>
-            )}
-          </S.HeaderPage>
-        </S.HeaderContainer>
+                  <Menu
+                    theme="dark"
+                    mode="inline"
+                    onOpenChange={onOpenChange}
+                    openKeys={openKeys}
+                  >
+                    <Menu.Item
+                      key="0"
+                      onClick={() => {
+                        router.push("home");
+                      }}
+                    >
+                      HOME
+                    </Menu.Item>
+                    <SubMenu key="sub1" title="ABOUT US">
+                      <Menu.Item
+                        key="1"
+                        onClick={() => router.push("/about-us", "1")}
+                      >
+                        Introduction
+                      </Menu.Item>
+                      <Menu.Item
+                        key="2"
+                        onClick={() => router.push("/about-us", "2")}
+                      >
+                        History
+                      </Menu.Item>
+                      <Menu.Item
+                        key="3"
+                        onClick={() => router.push("/about-us", "3")}
+                      >
+                        Curriculum
+                      </Menu.Item>
+                      <Menu.Item
+                        key="4"
+                        onClick={() => router.push("/about-us", "4")}
+                      >
+                        Alumni
+                      </Menu.Item>
+                      <Menu.Item
+                        key="5"
+                        onClick={() => router.push("/about-us", "5")}
+                      >
+                        Achievement
+                      </Menu.Item>
+                      <Menu.Item
+                        key="6"
+                        onClick={() => router.push("/about-us", "6")}
+                      >
+                        Press Release
+                      </Menu.Item>
+                    </SubMenu>
+                    <SubMenu key="sub2" title="ACTIVITIES">
+                      <Menu.Item
+                        key="7"
+                        onClick={() => router.push("/activities", "1")}
+                      >
+                        Session
+                      </Menu.Item>
+                      <Menu.Item
+                        key="8"
+                        onClick={() => router.push("/activities", "2")}
+                      >
+                        Hackathon
+                      </Menu.Item>
+                      <Menu.Item
+                        key="9"
+                        onClick={() => router.push("/activities", "3")}
+                      >
+                        Start-up
+                      </Menu.Item>
+                    </SubMenu>
+                    <Menu.Item key="10" onClick={() => router.push("/join-us")}>
+                      JOIN US
+                    </Menu.Item>
+                    <S.NoticeContainer>
+                      <p>ⓒ NEXT X Likelion</p>
+                      <p>korea@likelion.org</p>
+
+                      <p>korea university, Anam-dong, Seongbuk-gu,</p>
+                      <p>Seoul, South Korea</p>
+                    </S.NoticeContainer>
+                  </Menu>
+                </S.MenuContainer>
+              )}
+            </S.Container>
+            <S.HeaderWhiteSpace />
+          </>
+        )}
+      </>
+    );
+  }
+  return (
+    <>
+      {fullscreen && (
+        <S.NavBarContainer scroll={scrollPosition > fullscreen ? true : false}>
+          <S.NavBarLogo
+            src={logoSrc.src}
+            onClick={() => router.push("home")}
+            alt="NEXT 로고"
+          />
+
+          <S.NavLinkWrapper>
+            {Links.map(({ name, path }) => (
+              <S.StyledNav
+                isWhite={pathname === URLS.HOME}
+                onClick={() => {
+                  router.push(path);
+                }}
+                selected={pathname === path ? true : false}
+                key={name}
+              >
+                {name}
+              </S.StyledNav>
+            ))}
+          </S.NavLinkWrapper>
+        </S.NavBarContainer>
       )}
-    </div>
+    </>
   );
-}
+};
+
+export default NavBar;

@@ -4,7 +4,10 @@ const GlobalStyleWrapper = createGlobalStyle`
 
 
   * {
-    box-sizing: border-box;
+    padding: 0px;
+    margin: 0px;
+    /* box-sizing: border-box; */
+    font-family:'Spoqa Han Sans Neo', 'sans-serif', "애플 SD 산돌고딕 Neo", "Apple SD Gothic Neo", "Malgun Gothic", "arial sans-serif";
   }
   body, button, form, h1, h2, h3, h4, h5, h6, p, input, legend, li, ol, ul, select, table, td, textarea, th {
     margin:0;
@@ -32,15 +35,12 @@ const GlobalStyleWrapper = createGlobalStyle`
 
   html {
     font-size: 62.5%;
-
     -webkit-tap-highlight-color: transparent;
   }
   body {
   padding: 0;
   margin: 0;
-  font-family: 'NanumSquareNeo-Variable';
   word-break: keep-all;
-  background-color: #FFF;
   -webkit-user-select:none;
   -moz-user-select:none;
   -ms-user-select:none;
@@ -88,8 +88,6 @@ const Container = styled.div`
   width: 100vw;
   margin: 0 auto;
   font-size: 1.6rem;
-  background-color: #fff;
-  /* font-family: "Noto Sans KR"; */
   color: #222222;
 `;
 

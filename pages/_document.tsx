@@ -36,6 +36,12 @@ export default class MyDocument extends Document {
     return (
       <Html>
         <Head>
+          <link
+            href="//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css"
+            rel="stylesheet"
+            type="text/css"
+          />
+
           <meta
             property="og:title"
             content="고려대학교 소프트웨어창업학회 NEXT"
