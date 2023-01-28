@@ -79,8 +79,16 @@ export default class MyDocument extends Document {
             rel="stylesheet"
             href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css"
           ></link>
-          {/* <script src="node_modules/eruda/eruda.js"></script>
-            <script>eruda.init();</script> */}
+          <link
+            rel="stylesheet"
+            type="text/css"
+            href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css"
+          />
+          <link
+            rel="stylesheet"
+            type="text/css"
+            href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
+          />
         </Head>
         <body>
           <Main />

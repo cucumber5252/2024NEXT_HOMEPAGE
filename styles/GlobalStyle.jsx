@@ -92,6 +92,7 @@ const Container = styled.div`
   user-select: none;
   /* max-width: 1920px; */
   width: 100vw;
+  /* overflow: hidden; */
   margin: 0 auto;
   font-size: 1.6rem;
   color: #222222;
