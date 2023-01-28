@@ -8,6 +8,14 @@ export const color = keyframes`
   filter: grayscale(0)
 }
 `;
+export const fadeIn = keyframes`
+0%{
+  opacity: 0;
+}
+100%{
+  opacity: 1;
+}
+`;
 
 export const Container = styled.div`
   width: 100%;
@@ -51,11 +59,33 @@ export const MainWrapper = styled.div<{ isMobile: boolean }>`
   display: flex;
   flex-direction: column;
   align-items: center;
+  opacity: 0;
+  animation: ${fadeIn} 2s 1s forwards;
 `;
 export const MainTextWrapper = styled.div`
   width: 100%;
   margin-top: 3rem;
   & img {
     width: 100%;
+  }
+`;
+export const Section1 = styled.div`
+  width: 100%;
+  /* height: 200vh; */
+
+  padding: 30rem 10%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  & div {
+    width: 45%;
+    color: white;
+  }
+  & div:last-child p {
+    font-size: 3.6rem;
+    font-weight: 700;
+  }
+  & div:last-child p b {
+    color: ${THEME.ORANGE};
   }
 `;

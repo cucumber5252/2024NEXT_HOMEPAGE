@@ -54,10 +54,11 @@ export default class MyDocument extends Document {
             rel="icon"
             href="https://"
           /> */}
-          <meta
+          {/* <meta
             property="og:image"
             content="https://yearfourcuts.s3.ap-northeast-2.amazonaws.com/client_assets/thumbnail.png"
-          />
+          /> */}
+
           <meta
             name="Keywords"
             content="NEXT: 고려대학교 소프트웨어창업학회 NEXT"

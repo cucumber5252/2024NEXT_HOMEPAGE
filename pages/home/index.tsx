@@ -37,6 +37,14 @@ export default function Main() {
             </S.MainWrapper>
             <S.MainContainerBG src={MainBG.src} />
           </S.MainContainer>
+          <S.Section1>
+            <div></div>
+            <div>
+              <p>
+                <b>내 아이디어</b>를 내 <b>손</b>으로
+              </p>
+            </div>
+          </S.Section1>
         </S.Container>
       )}
     </div>

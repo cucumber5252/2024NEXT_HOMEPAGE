@@ -12,6 +12,7 @@ export const NavBarContainer = styled.div<{ scroll: boolean }>`
   position: fixed;
   box-sizing: border-box;
   background-color: transparent;
+  transition: 1s;
   ${(props) =>
     props.scroll &&
     css`

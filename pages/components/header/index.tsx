@@ -186,7 +186,9 @@ const NavBar = () => {
   return (
     <>
       {fullscreen && (
-        <S.NavBarContainer scroll={scrollPosition > fullscreen ? true : false}>
+        <S.NavBarContainer
+          scroll={scrollPosition > fullscreen * 0.3 ? true : false}
+        >
           <S.NavBarLogo
             src={logoSrc.src}
             onClick={() => router.push("home")}

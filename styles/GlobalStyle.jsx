@@ -14,7 +14,9 @@ const GlobalStyleWrapper = createGlobalStyle`
     padding:0;
     /* background-color: #1D1D1D; */
   }
-  
+  ::-webkit-scrollbar {
+  display: none;
+}
   a {
     color: inherit;
     text-decoration: none;
@@ -44,7 +46,11 @@ const GlobalStyleWrapper = createGlobalStyle`
   -webkit-user-select:none;
   -moz-user-select:none;
   -ms-user-select:none;
-  user-select:none
+  user-select:none;
+ -ms-overflow-style: none;
+ 
+
+  /* overflow-x: hidden; */
   /* font-family: -apple-system, InkLipquid; */
 }
 @font-face {

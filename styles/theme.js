@@ -6,4 +6,5 @@ export const THEME = {
   ORANGE: "#F7941E",
   BLACK: "#000000",
   WHITE: "#FFFFFF",
+  LIGHT_BLACK: "030303",
 };
