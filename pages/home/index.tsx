@@ -156,7 +156,7 @@ export default function Main() {
                 </span>
               </p>
             </S.TextWrapper>
-            <S.PartnerContainer>
+            <S.PartnerContainer isMobile={isMobile}>
               {partners.map(({ name, src }) => (
                 <div key={name} data-aos="fade">
                   <img src={src.src} />

@@ -237,7 +237,7 @@ export const MoreBtn = styled.div<{ isMobile: boolean }>`
     `}
 `;
 
-export const PartnerContainer = styled.div`
+export const PartnerContainer = styled.div<{ isMobile: boolean }>`
   width: 100%;
   padding: 5rem;
   background: white;
@@ -246,6 +246,7 @@ export const PartnerContainer = styled.div`
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+
   & div {
     width: 20%;
     margin: 2rem;
@@ -253,4 +254,13 @@ export const PartnerContainer = styled.div`
   & div img {
     width: 100%;
   }
+  ${(props) =>
+    props.isMobile &&
+    css`
+      padding: 2rem;
+      & div {
+        width: 40%;
+        margin: 1rem;
+      }
+    `}
 `;
