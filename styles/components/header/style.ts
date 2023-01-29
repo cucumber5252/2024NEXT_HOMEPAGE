@@ -165,14 +165,14 @@ export const HamburgerContainer = styled.div<{
     left: 0;
     width: 100%;
     height: 2px;
-    background-color: ${(props) => props.color};
+    background-color: white;
     border-radius: 4px;
     transition: all 0.4s;
-    ${(props) =>
+    /* ${(props) =>
       props.isWhite &&
       css`
         background-color: white;
-      `}
+      `} */
   }
   & span:nth-of-type(1) {
     top: 0;
