@@ -16,6 +16,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <h2>헤더 반응 테스트용. 사라질 페이지. /home에서 시작할 예정</h2>
+      <div style={{ width: "100%", height: "300vh", background: "grey" }}></div>
     </div>
   );
 }

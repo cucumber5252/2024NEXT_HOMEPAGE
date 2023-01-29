@@ -18,13 +18,13 @@ export const NavBarContainer = styled.div<{
   transition: 1s;
   ${(props) =>
     props.scroll &&
-    props.pathname === "home" &&
+    props.pathname === "/home" &&
     css`
       background-color: rgba(0, 0, 0, 0.8);
     `}
   ${(props) =>
     props.scroll &&
-    props.pathname !== "home" &&
+    props.pathname !== "/home" &&
     css`
       background-color: rgba(255, 255, 255, 0.8);
     `}
