@@ -108,37 +108,37 @@ const NavBar = () => {
                     <SubMenu key="sub1" title="ABOUT US">
                       <Menu.Item
                         key="1"
-                        onClick={() => router.push("/about-us", "1")}
+                        onClick={() => router.push("/about", "1")}
                       >
                         Introduction
                       </Menu.Item>
                       <Menu.Item
                         key="2"
-                        onClick={() => router.push("/about-us", "2")}
+                        onClick={() => router.push("/about", "2")}
                       >
                         History
                       </Menu.Item>
                       <Menu.Item
                         key="3"
-                        onClick={() => router.push("/about-us", "3")}
+                        onClick={() => router.push("/about", "3")}
                       >
                         Curriculum
                       </Menu.Item>
                       <Menu.Item
                         key="4"
-                        onClick={() => router.push("/about-us", "4")}
+                        onClick={() => router.push("/about", "4")}
                       >
                         Alumni
                       </Menu.Item>
                       <Menu.Item
                         key="5"
-                        onClick={() => router.push("/about-us", "5")}
+                        onClick={() => router.push("/about", "5")}
                       >
                         Achievement
                       </Menu.Item>
                       <Menu.Item
                         key="6"
-                        onClick={() => router.push("/about-us", "6")}
+                        onClick={() => router.push("/about", "6")}
                       >
                         Press Release
                       </Menu.Item>
@@ -163,7 +163,7 @@ const NavBar = () => {
                         Start-up
                       </Menu.Item>
                     </SubMenu>
-                    <Menu.Item key="10" onClick={() => router.push("/join-us")}>
+                    <Menu.Item key="10" onClick={() => router.push("/join")}>
                       JOIN US
                     </Menu.Item>
                     <S.NoticeContainer>
@@ -188,6 +188,7 @@ const NavBar = () => {
       {fullscreen && (
         <S.NavBarContainer
           scroll={scrollPosition > fullscreen * 0.3 ? true : false}
+          pathname={pathname}
         >
           <S.NavBarLogo
             src={logoSrc.src}

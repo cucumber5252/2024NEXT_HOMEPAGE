@@ -1,7 +1,10 @@
 import styled, { css, keyframes } from "styled-components";
 import { THEME } from "styles/theme";
 
-export const NavBarContainer = styled.div<{ scroll: boolean }>`
+export const NavBarContainer = styled.div<{
+  scroll: boolean;
+  pathname: string;
+}>`
   padding: 34px 68px;
   display: flex;
   align-items: center;
@@ -15,8 +18,15 @@ export const NavBarContainer = styled.div<{ scroll: boolean }>`
   transition: 1s;
   ${(props) =>
     props.scroll &&
+    props.pathname === "home" &&
     css`
       background-color: rgba(0, 0, 0, 0.8);
+    `}
+  ${(props) =>
+    props.scroll &&
+    props.pathname !== "home" &&
+    css`
+      background-color: rgba(255, 255, 255, 0.8);
     `}
 `;
 
