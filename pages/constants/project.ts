@@ -1,16 +1,16 @@
 import { SLIDE_ITEM } from "pages/types/people/slide-item";
-import bettle from "public/images/project/project-bettle.png";
-import catNeighbor from "public/images/project/project-cat-neighbor.png";
-import jaeumi from "public/images/project/project-jaeumi.png";
-import kuMap from "public/images/project/project-ku-map.png";
-import naviya from "public/images/project/project-naviya.png";
-import nowWhat from "public/images/project/project-now-what.png";
-import sent from "public/images/project/project-sent.png";
-import solitaryDiningRoom from "public/images/project/project-solitary-dining-room.png";
-import spaceDaily from "public/images/project/project-space-daily.png";
-import tabam from "public/images/project/project-tabam.png";
-import timeBank from "public/images/project/project-time-bank.png";
-import toTomorrow from "public/images/project/project-to-tomorrow.png";
+import bettle from "public/images/activities/project/project-bettle.png";
+import catNeighbor from "public/images/activities/project/project-cat-neighbor.png";
+import jaeumi from "public/images/activities/project/project-jaeumi.png";
+import kuMap from "public/images/activities/project/project-ku-map.png";
+import naviya from "public/images/activities/project/project-naviya.png";
+import nowWhat from "public/images/activities/project/project-now-what.png";
+import sent from "public/images/activities/project/project-sent.png";
+import solitaryDiningRoom from "public/images/activities/project/project-solitary-dining-room.png";
+import spaceDaily from "public/images/activities/project/project-space-daily.png";
+import tabam from "public/images/activities/project/project-tabam.png";
+import timeBank from "public/images/activities/project/project-time-bank.png";
+import toTomorrow from "public/images/activities/project/project-to-tomorrow.png";
 
 export const ProjectItem: SLIDE_ITEM[] = [
   { name: "bettle", src: bettle },
