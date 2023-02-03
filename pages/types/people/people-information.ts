@@ -6,6 +6,7 @@ export interface PEOPLE_INFORMATION_TYPE {
   department: string;
   classOf: number;
   imgSrc: string;
-  masterDegree?: boolean;
+  masterDegree?: string;
+  secondMajor?: string;
   managementTeam: string;
 }

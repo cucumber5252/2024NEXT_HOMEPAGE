@@ -4,6 +4,8 @@ import Programming from "public/assets/lottie/programming.json";
 import Session from "public/assets/lottie/session.json";
 import Project from "public/assets/lottie/project.json";
 import Demoday from "public/assets/lottie/demoday.json";
+import DemodayFinal from "public/assets/lottie/demoday-final.json";
+import DemodayInHouse from "public/assets/lottie/demoday-in-house.json";
 import { useLottie, useLottieInteractivity } from "lottie-react";
 
 export default function RocketLottie() {
@@ -73,10 +75,32 @@ const DemodayLottie = () => {
   return View;
 };
 
+const DemodayFinalLottie = () => {
+  const options = {
+    animationData: DemodayFinal,
+  };
+  const style = { width: "100%" };
+  const { View } = useLottie(options, style);
+
+  return View;
+};
+
+const DemodayInHouseLottie = () => {
+  const options = {
+    animationData: DemodayInHouse,
+  };
+  const style = { width: "100%" };
+  const { View } = useLottie(options, style);
+
+  return View;
+};
+
 export {
   RocketLottie,
   LaptopLottie,
   SessionLottie,
   ProjectLottie,
   DemodayLottie,
+  DemodayFinalLottie,
+  DemodayInHouseLottie,
 };

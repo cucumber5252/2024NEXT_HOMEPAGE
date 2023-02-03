@@ -7,7 +7,8 @@ export const THEME = {
   BLACK: "#000000",
   WHITE: "#FFFFFF",
   LIGHT_BLACK: "#1b1b1b",
-  TEXT_BLACK: "#292929",
   BLACK_100: "#5F5F5F",
+  BLACK_200: "#292929",
   GRAY_100: "#EBEBEB",
+  GRAY_200: "#D9D9D9",
 };

@@ -66,7 +66,11 @@ export default function Member() {
                       </S.MemberName>
                       <S.MemberInfo>
                         {item.department}
-                        {item.masterDegree && "(석사)"} {`${item.classOf}학번`}
+                        {item.masterDegree &&
+                          `(${item.masterDegree && item.masterDegree})`}
+                        {item.secondMajor &&
+                          `(${item.secondMajor && item.secondMajor})`}{" "}
+                        {`${item.classOf}학번`}
                       </S.MemberInfo>
                     </S.MemberTextBox>
                   </S.MemberWrapper>

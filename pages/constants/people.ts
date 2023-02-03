@@ -119,6 +119,7 @@ export const PEOPLE_INFORMATION: PEOPLE_INFORMATION_TYPE[] = [
     department: DEPARTMENT.COMPUTER,
     classOf: 19,
     imgSrc: "/images/profile/10기_송명훈.png",
+    secondMajor: "자전",
     managementTeam: MANAGEMENT_TEAM_POSITION.EXECUTIVE,
   },
   {
@@ -126,7 +127,7 @@ export const PEOPLE_INFORMATION: PEOPLE_INFORMATION_TYPE[] = [
     name: "양휘민",
     department: DEPARTMENT.JAPANESE_LANGUAGE_AND_LITERATURE,
     classOf: 20,
-    imgSrc: "",
+    imgSrc: "/images/profile/10기_양휘민.png",
     managementTeam: MANAGEMENT_TEAM_POSITION.NORMAL,
   },
   {
@@ -191,7 +192,7 @@ export const PEOPLE_INFORMATION: PEOPLE_INFORMATION_TYPE[] = [
     department: DEPARTMENT.PSYCHOTHERAPY,
     classOf: 20,
     imgSrc: "/images/profile/10기_이지은.png",
-    masterDegree: true,
+    masterDegree: "석사",
     managementTeam: MANAGEMENT_TEAM_POSITION.NORMAL,
   },
   {
@@ -224,7 +225,7 @@ export const PEOPLE_INFORMATION: PEOPLE_INFORMATION_TYPE[] = [
     department: DEPARTMENT.PSYCHOTHERAPY,
     classOf: 21,
     imgSrc: "/images/profile/10기_주장규.png",
-    masterDegree: true,
+    masterDegree: "석사",
     managementTeam: MANAGEMENT_TEAM_POSITION.NORMAL,
   },
   {

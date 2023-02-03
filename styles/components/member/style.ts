@@ -57,7 +57,7 @@ export const MemberName = styled.p`
   /* line-height: 39px; */
   line-height: 2rem;
   margin-bottom: 0.6rem;
-  color: ${THEME.TEXT_BLACK};
+  color: ${THEME.BLACK_200};
 `;
 
 export const MemberInfo = styled.p`
