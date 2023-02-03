@@ -20,7 +20,7 @@ export const fadeIn = keyframes`
 
 export const Container = styled.div<{ isMobile: boolean }>`
   width: 100%;
-  padding: 6rem;
+  padding: 6rem 1.5rem;
   background: white;
   display: relative;
 
@@ -71,6 +71,19 @@ export const TextWrapper = styled.div`
   justify-content:space-around;
 `;
 
+
+export const FlexRow = styled.div`
+  padding: 0;
+  margin: 0;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+
+`;
+
+
 export const TitleTextElementWrapper = styled.div`
   width: 100%;
   position: relative;
@@ -108,8 +121,8 @@ export const TextElementWrapper = styled.div`
   flex-direction: column;
 
   & p {
-    line-height: 150%;
-    padding-bottom: 1rem;
+    line-height: 220%;
+    padding: 0 rem;
   }
 
   & > span {
@@ -120,4 +133,28 @@ export const TextElementWrapper = styled.div`
     color: ${THEME.ORANGE};
   }
 }
+`;
+
+export const Badge = styled.button`
+  background: inherit;
+  border: none;
+  box-shadow: none;
+  border-radius: 0;
+  overflow: visible;
+  cursor: none;
+
+  margin: 0;
+  padding: 0;
+
+  width: 5rem;
+  height: 2rem;
+  font-weight: 800;
+  background: #292929;
+
+  border-radius: 0.9rem;
+  font-size: 0.8rem;
+  text-align: center;
+  line-height: 0;  // line-height 적용되면 자동으로 세로 가운데 정렬됨
+
+  color: #f7941e;
 `;

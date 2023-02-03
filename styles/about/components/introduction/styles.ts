@@ -55,7 +55,7 @@ export const ContainerBG = styled.img`
   animation: ${color} 5s 0s forwards;
 `;
 
-export const MainTextWrapper = styled.div`
+export const MainTextWrapper = styled.div<{ isMobile: boolean }>`
   width: 100%;
   height: 100vh;
   padding: 20rem;
@@ -64,7 +64,7 @@ export const MainTextWrapper = styled.div`
 	left: 50%;
 	transform: translate( -50%, -50% );
 
-  font-size: 1.8rem;
+  font-size: 2.8rem;
   word-break: keep-all;
   color: #000;
   overflow: hidden;
@@ -76,10 +76,10 @@ export const MainTextWrapper = styled.div`
   align-items: start;
   justify-content: space-around;
 
-
   & p {
-    line-height: 150%;
-    padding-bottom: 1rem;
+    font-size: 2.8rem;
+    font-weight: 600;
+    color: ${THEME.WHITE}
   }
 
   & > span {
@@ -95,4 +95,43 @@ export const MainTextWrapper = styled.div`
   & img {
     width: 100%;
   }
+
+
+  ${(props) =>
+    props.isMobile &&
+    css`
+    width: 100%;
+    height: 100vh;
+    padding: 20rem 3rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate( -50%, -50% );
+  
+    font-size: 1.8rem;
+    word-break: keep-all;
+    color: #000;
+    overflow: hidden;
+
+    & p {
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: ${THEME.WHITE}
+    }
+  
+    & > span {
+      font-size: 2.4rem;
+      font-weight: 600;
+      color: ${THEME.WHITE}
+    }
+  
+    & span b {
+      color: ${THEME.ORANGE};
+    }
+  
+    & img {
+      width: 100%;
+    }
+
+    `}
 `;

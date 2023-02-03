@@ -3,11 +3,11 @@ import { THEME } from "styles/theme";
 
 export const ScrollProgressBar= styled.div<{ isMobile: boolean }>`{
   width: 4px;
-  height: 87%;
+  height: 87.1%;
   background-color: ${THEME.GRAY};
   position: absolute; //부모요소는 history의 index.tsx의 Container
 
-  top: 70px;
+  top: 75px;
   left: 250px;
   right: 0;
 

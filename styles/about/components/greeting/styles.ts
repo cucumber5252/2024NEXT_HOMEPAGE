@@ -20,7 +20,7 @@ export const fadeIn = keyframes`
 
 export const Container = styled.div<{ isMobile: boolean }>`
   width: 100%;
-  padding: 6rem 3rem;
+  padding: 10rem 3rem;
   background: white;
   display: flex;
   flex-wrap: wrap;
@@ -108,7 +108,7 @@ export const TextElementWrapper = styled.div`
   width: 100%;
   position: relative;
 
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   word-break: keep-all;
   color: #000;
   overflow: hidden;

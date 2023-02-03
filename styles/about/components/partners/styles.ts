@@ -104,13 +104,16 @@ export const ImageElementWrapper = styled.div`
   }
   & img {
     position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
 
     width: 100%;
     height: 100%;
     object-fit: cover;
+
+    transition: all 0.2s linear;
   }
+
+  & img:hover {
+    transform: scale(1.13);
 `;
 
 // export const PartnerContainer = styled.div<{ isMobile: boolean }>`
