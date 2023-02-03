@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import * as S from "styles/components/s3upload/style";
 import axios from "axios";
 import { useRecoilState } from "recoil";
+import { sendContactForm } from "pages/lib/api";
 import { joinModalOpen, isLaunched } from "pages/constants/atoms";
 import {
   Button,
@@ -77,6 +78,9 @@ export default function UploadPage() {
         setFile("");
         setInfoOpen(false);
         setLaunch(true);
+        // --------------------------
+        sendContactForm(values);
+        // --------------------------
         toast({
           title: "제출되었습니다!",
           status: "success",
