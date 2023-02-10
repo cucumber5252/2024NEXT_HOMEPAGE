@@ -1,6 +1,7 @@
 import styled, { css, keyframes } from "styled-components";
 import { THEME } from "styles/theme";
-
+import { motion } from "framer-motion";
+import { fadeIn } from "styles/activities/style";
 export const NavBarContainer = styled.div<{
   scroll: boolean;
   pathname: string;
@@ -20,13 +21,13 @@ export const NavBarContainer = styled.div<{
     props.scroll &&
     props.pathname === "/home" &&
     css`
-      background-color: rgba(0, 0, 0, 0.8);
+      background-color: rgba(0, 0, 0, 0.85);
     `}
   ${(props) =>
     props.scroll &&
     props.pathname !== "/home" &&
     css`
-      background-color: rgba(255, 255, 255, 0.8);
+      background-color: rgba(255, 255, 255, 0.85);
     `}
 `;
 
@@ -122,30 +123,50 @@ const slideIn = keyframes`
   }
 `;
 
-export const MenuContainer = styled.div<{ isOpen: boolean }>`
+export const MenuContainer = styled(motion.div)<{ isOpen: boolean }>`
   width: 100vw;
-  ${({ isOpen }) =>
-    isOpen
-      ? css`
-          animation: ${slideOut} 0.5s cubic-bezier(0.83, 0, 0.17, 1);
-        `
-      : css`
-          animation: ${slideIn} 0.5s cubic-bezier(0.83, 0, 0.17, 1);
-        `}
+  height: 100vh;
+  background-color: #000;
+  position: fixed;
+  z-index: 80;
 `;
-
-export const NoticeContainer = styled.section`
-  color: #ffff;
-  position: absolute;
-  left: 2.4rem;
-  bottom: 3rem;
-  > p {
-    margin: 2rem 0;
-
-    &:nth-child(2) {
-      margin-bottom: 4rem;
-    }
+export const MenuWrapper = styled(motion.div)`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  margin: 0 auto;
+`;
+export const Menu = styled.div<{ selected: boolean }>`
+  width: 100%;
+  color: white;
+  font-size: 2rem;
+  padding: 1.6rem 4rem;
+  transition: 0.5s;
+  /* border-radius: 8px; */
+  ${(props) =>
+    props.selected &&
+    css`
+      background-color: ${THEME.ORANGE};
+    `}
+  &:hover {
+    color: black;
+    background-color: ${THEME.LIGHT_GRAY};
   }
+`;
+export const SubMenuContainer = styled.div<{ subMenu: any }>`
+  width: 100%;
+`;
+export const SubMenu = styled.div`
+  color: white;
+  padding: 1.2rem 4rem;
+  background-color: #151515;
+`;
+export const NoticeContainer = styled.section`
+  color: white;
+  position: absolute;
+  left: 10%;
+  bottom: 8rem;
 `;
 export const HamburgerContainer = styled.div<{
   click: boolean;

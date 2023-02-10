@@ -20,41 +20,40 @@ export const fadeIn = keyframes`
 
 export const Container = styled.div<{ isMobile: boolean }>`
   width: 100%;
-  padding: 10rem 3rem;
+  padding: 6rem 3rem;
   background: white;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: start;
 
-
   & div img {
     width: 100%;
   }
 
+  ${(props) =>
+    props.isMobile &&
+    css`
+      padding: 2rem 2rem;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
 
-    ${(props) =>
-      props.isMobile &&
-      css`
-        padding: 10rem 8%;
+      & div {
+        display: flex;
         flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        & div {
-          display: flex;
-          flex-direction: column;
-          width: 100%;
-          padding-bottom: 5rem;
-        }
-        & div:last-child p {
-          font-size: 1.8rem;
-        }
-        & div:last-child p:first-child {
-          font-size: 3.2rem;
-          font-weight: 500;
-          padding-bottom: 3rem;
-        }
-      `}
+        width: 100%;
+        padding-bottom: 5rem;
+      }
+      & div:last-child p {
+        font-size: 1.5rem;
+      }
+      & div:last-child p:first-child {
+        font-size: 2rem;
+        font-weight: 500;
+        padding-bottom: 3rem;
+      }
+    `}
 `;
 
 // export const MainWrapper = styled.div<{ isMobile: boolean }>`
@@ -71,7 +70,6 @@ export const ImageWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  }
 `;
 
 export const ImageElementWrapper = styled.div`
@@ -94,21 +92,26 @@ export const ImageElementWrapper = styled.div`
   }
 `;
 
-export const TextWrapper = styled.div`
+export const TextWrapper = styled.div<{ isMobile: boolean }>`
   width: 61.8%;
   padding-right: 8rem;
   display: flex;
   align-items: center;
   display: flex;
-  justify-content:space-around;
+  justify-content: space-around;
   align-content: space-between;
+  ${(props) =>
+    props.isMobile &&
+    css`
+      padding-right: 0;
+    `}
 `;
 
 export const TextElementWrapper = styled.div`
   width: 100%;
   position: relative;
 
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   word-break: keep-all;
   color: #000;
   overflow: hidden;
@@ -128,8 +131,4 @@ export const TextElementWrapper = styled.div`
   & span b {
     color: ${THEME.ORANGE};
   }
-  
-}
-
 `;
-

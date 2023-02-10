@@ -232,15 +232,20 @@ export const TitleWrapper = styled.div<{ isMobile: boolean }>`
 `;
 export const RocketInfo = styled.div`
   width: 100%;
-  position: absolute;
+  margin-top: 1rem;
+  /* position: absolute; */
   text-align: center;
-  left: 0;
+  /* left: 0; */
   opacity: 0;
-  bottom: 20px;
+  /* bottom: 20px; */
   color: white;
-  font-size: 1.8rem;
-  font-weight: 700;
-  animation: ${fadeIn} 1s 4s alternate infinite;
+
+  animation: ${fadeIn} 1s 5s alternate infinite;
+  & p {
+    font-size: 1.8rem;
+    font-weight: 400;
+    color: ${THEME.LIGHT_GRAY};
+  }
 `;
 export const InfoModal = styled.div`
   display: flex;
@@ -265,7 +270,10 @@ export const InfoModal = styled.div`
     color: ${THEME.ORANGE};
   }
 `;
-export const NextBtnWrapper = styled.div<{ isMobile: boolean }>`
+export const NextBtnWrapper = styled.div<{
+  isMobile: boolean;
+  accepted: boolean;
+}>`
   width: 100%;
   display: flex;
   flex-wrap: wrap;
@@ -298,4 +306,32 @@ export const NextBtnWrapper = styled.div<{ isMobile: boolean }>`
         margin-bottom: 2rem;
       }
     `}
+  ${(props) =>
+    !props.accepted &&
+    css`
+      & button:last-child {
+        background-color: ${THEME.LIGHT_ORANGE};
+        color: ${THEME.ORANGE};
+      }
+    `}
+`;
+export const CheckContainer = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin-top: 2rem;
+  /* justify-content: space-between; */
+  color: ${THEME.LIGHT_GRAY};
+  & label {
+    margin-left: 6px;
+    cursor: pointer;
+  }
+  & input {
+    cursor: pointer;
+    width: 2rem;
+    height: 2rem;
+  }
+  & input:checked {
+    accent-color: ${THEME.ORANGE};
+  }
 `;

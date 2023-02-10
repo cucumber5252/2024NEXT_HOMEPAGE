@@ -3,14 +3,17 @@ import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import { useMediaQuery } from "react-responsive";
 import * as S from "styles/join/style";
-import spaceImg from "public/assets/space.jpg";
+import spaceImg from "public/assets/space_pressed.jpg";
+// import spaceImg from "public/assets/space.jpg";
+// import spaceImg2 from "public/assets/space2.jpg";
+// import spaceImg3 from "public/assets/space3.jpg";
 import ReactPannellum, { getConfig } from "react-pannellum";
-import { FireLottie } from "pages/components/lottie/lottie";
+import { FireLottie } from "components/lottie/lottie";
 import RocketImg from "public/assets/Rocket.png";
 import { motion } from "framer-motion";
-import S3upload from "pages/components/s3upload/index";
+import S3upload from "components/s3upload/index";
 import { useRecoilState } from "recoil";
-import { joinModalOpen, isLaunched } from "pages/constants/atoms";
+import { joinModalOpen, isLaunched } from "constants/atoms";
 import Text from "public/assets/homeMainSmallLogo.png";
 import Logo from "public/assets/logo.png";
 const variants = {
@@ -23,6 +26,7 @@ export default function Join() {
   const [launch, setLaunch] = useRecoilState(isLaunched);
   const [modalPage, setModalPage] = useState(1);
   const [modalOpen, setModalOpen] = useRecoilState(joinModalOpen);
+  const [accept, setAccept] = useState(false);
   const isDesktop = useMediaQuery({ minDeviceWidth: 1000 });
   const isMobile = useMediaQuery({ maxWidth: 1000 });
   const config = {
@@ -39,7 +43,7 @@ export default function Join() {
     },
   };
   useEffect(() => {
-    console.log("loaded");
+    // console.log("loaded");
     setLoading(false);
   }, [isMobile, isDesktop]);
   useEffect(() => {
@@ -56,8 +60,11 @@ export default function Join() {
   return (
     <div>
       <Head>
-        <title>Join Us</title>
-        <meta name="description" content="고려대학교 소프트웨어창업학회 NEXT" />
+        <title>NEXT: JOIN</title>
+        <meta
+          name="description"
+          content="고려대학교 소프트웨어창업학회 NEXT에 탑승하세요"
+        />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       {!loading && (
@@ -67,6 +74,9 @@ export default function Join() {
               <img src={Text.src} />
               <img src={Logo.src} />
               <p>11기 모집</p>
+              <S.RocketInfo>
+                <p>로켓을 클릭해보세요!</p>
+              </S.RocketInfo>
             </S.TitleWrapper>
           )}
           {launch && (
@@ -106,15 +116,24 @@ export default function Join() {
                       <br />
                       e. 제출한 지원서는 수정할 수 없습니다.
                       <br /> f. 세종캠퍼스 학생은 지원이 불가합니다. (세종캠퍼스
-                      멋쟁이사자처럼 지원 가능) <br />
+                      멋쟁이사자처럼 지원 가능)
                       <br />
-                      <span>2. 면접 촬영 및 개인정보 수집 안내</span>
+                      <br />
+                      <span>2. 리크루팅 일정</span>
+                      <br />
+                      1차 서류 결과 발표: 2월 19일 <br />
+                      2차 면접: 2월 26일
+                      <br />
+                      최종 합격 발표: 3월 2일
+                      <br />
+                      <br />
+                      <span>3. 면접 촬영 및 개인정보 수집 안내</span>
                       <br /> 면접 평가는 모두 대면으로 이뤄집니다. <br /> 공정한
                       면접 평가를 위해 면접 내용을 촬영 및 수집할 예정입니다.
                       <br />
                       촬영한 면접영상 및 개인정보는 선발과정에서만 활용되며,
                       리크루팅 이후 즉시 폐기될 예정입니다. <br /> <br />
-                      <span>3. 학회 보증금 제도 안내</span> <br />
+                      <span>4. 학회 보증금 제도 안내</span> <br />
                       원활한 학회 운영을 위해 보증금 제도를 운영하고 있습니다.
                       <br />
                       새로 들어오시는 학회원들은 <b>10만원</b>의 보증금을
@@ -125,22 +144,50 @@ export default function Join() {
                       확인하실 수 있으며 활동이 끝난 후 남은 금액을 1/n 하여
                       전액 반환해 드립니다. <br />
                       <br />
-                      <span>4. 오리엔테이션 필참</span>
+                      <span>5. 오리엔테이션 필참</span>
                       <br />
-                      최종 합격 이후 <b>3월 5일</b>에 진행되는 OT는 필수
-                      참여입니다. 원활한 학회 운영을 위해, OT를 고려하여 개인
-                      일정을 조정해주시면 감사하겠습니다
+                      최종 합격 이후 <b>3월 5일 14시~17시</b>,
+                      퓨처플레이(아크로서울포레스트 D타워 8F)에서 진행되는 OT는
+                      필수 참여입니다. 원활한 학회 운영을 위해, OT를 고려하여
+                      개인 일정을 조정해주시면 감사하겠습니다
                     </p>
-                    <S.NextBtnWrapper isMobile={isMobile}>
+                    <S.CheckContainer>
+                      <input
+                        checked={accept}
+                        type="checkbox"
+                        id="acceptCheck"
+                        onClick={() => {
+                          setAccept((prev) => !prev);
+                        }}
+                      />
+                      <label
+                        onClick={() => {
+                          setAccept((prev) => !prev);
+                        }}
+                      >
+                        위 안내사항을 확인했으며, 이에 동의합니다.
+                      </label>
+                    </S.CheckContainer>
+
+                    <S.NextBtnWrapper isMobile={isMobile} accepted={accept}>
                       <button
                         onClick={() =>
                           (location.href =
-                            "https://next-recruit.s3.ap-northeast-2.amazonaws.com/assets/NEXT_11%EA%B8%B0_%EC%A7%80%EC%9B%90%EC%84%9C_%EC%96%91%EC%8B%9D.docx")
+                            "https://next-recruit.s3.ap-northeast-2.amazonaws.com/assets/%EC%84%B1%ED%95%A8_%ED%95%99%EB%B2%88_NEXT%EC%A7%80%EC%9B%90%EC%84%9C.docx")
                         }
                       >
                         지원서 다운로드
                       </button>
-                      <button onClick={() => setModalPage(2)}>지원하기</button>
+                      <button
+                        disabled={!accept}
+                        onClick={() => {
+                          if (accept) {
+                            setModalPage(2);
+                          }
+                        }}
+                      >
+                        지원하기
+                      </button>
                     </S.NextBtnWrapper>
                   </S.InfoModal>
                 )}
@@ -152,7 +199,6 @@ export default function Join() {
             <S.RocketContainer
               onClick={() => {
                 setModalOpen((modalOpen) => !modalOpen);
-                console.log(modalOpen);
               }}
               launched={launch}
             >
@@ -170,11 +216,6 @@ export default function Join() {
                 src="https://media-public.canva.com/Y2Ods/MAD9dPY2Ods/1/tl.png"
               />
             </S.Planet>
-            {!modalOpen && !launch && (
-              <S.RocketInfo>
-                <p>로켓을 클릭해보세요!</p>
-              </S.RocketInfo>
-            )}
           </S.SpaceContainer>
 
           <ReactPannellum

@@ -9,6 +9,7 @@ export const MainContainer = styled.div`
 export const ElementWrapper = styled.div`
   width: 60%;
   padding: 2rem;
+  background-color: transparent !important;
 
   @media screen and (max-width: 500px) {
     padding: 0rem;
@@ -22,7 +23,7 @@ export const ImageWrapper = styled.div`
     content: "";
     padding-bottom: 56%;
     display: block;
-    background-color: green;
+    /* background-color: green; */
   }
   & img {
     position: absolute;

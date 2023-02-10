@@ -6,8 +6,8 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import { useRouter } from "next/router";
 import { Tabs } from "antd";
-import { ACTIVITY_ITEMS } from "pages/constants/activities";
-import Curriculrum from "./components/curriculrum";
+import { ACTIVITY_ITEMS } from "constants/activities";
+import Curriculrum from "./components/curriculum";
 import Session from "./components/session";
 import Project from "./components/project";
 import Demoday from "./components/demoday";
@@ -20,6 +20,8 @@ export default function Activities() {
   const isDesktop = useMediaQuery({ minDeviceWidth: 820 });
   const isMobile = useMediaQuery({ maxWidth: 820 });
   const isTabCenter = useMediaQuery({ minWidth: 381 });
+  const key = router.query.key;
+  const [viewKey, setViewKey] = useState<any>("1");
 
   useEffect(() => {
     AOS.init();
@@ -27,6 +29,11 @@ export default function Activities() {
       setLoading(false);
     }
   }, []);
+  useEffect(() => {
+    if (key) {
+      setViewKey(key);
+    }
+  }, [router]);
   return (
     <>
       <Head>
@@ -40,6 +47,8 @@ export default function Activities() {
         <S.Container isMobile={isMobile}>
           <Tabs
             defaultActiveKey="1"
+            activeKey={viewKey}
+            onChange={(key) => setViewKey(key)}
             centered={isTabCenter}
             items={[
               {
