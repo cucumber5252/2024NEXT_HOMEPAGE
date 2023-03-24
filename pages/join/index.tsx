@@ -106,7 +106,7 @@ export default function Join() {
                       <span>1. 지원방식</span>
                       <br /> a. 아래 <mark>[지원서 다운로드]</mark> 버튼을
                       클릭한 후 지원서 양식 다운로드 <br />
-                      b. 지원기간<b>(2월 6일 오전 0시 ~ 2월 15일 오후 5시)</b>
+                      b. 지원기간<b>(2월 6일 오전 0시 ~ 2월 15일 23시 59분)</b>
                       내에 지원서 작성 <br />
                       c. 아래 <mark>[지원하기]</mark> 버튼을 클릭하여 지원서
                       업로드
@@ -179,14 +179,14 @@ export default function Join() {
                         지원서 다운로드
                       </button>
                       <button
-                        disabled={!accept}
+                        disabled={true}
                         onClick={() => {
-                          if (accept) {
-                            setModalPage(2);
-                          }
+                          // if (accept) {
+                          //   setModalPage(2);
+                          // }
                         }}
                       >
-                        지원하기
+                        모집이 마감되었습니다
                       </button>
                     </S.NextBtnWrapper>
                   </S.InfoModal>

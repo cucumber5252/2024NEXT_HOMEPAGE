@@ -3,7 +3,7 @@ import baemin from "public/images/alumni/baemin.png";
 import chunmyeong from "public/images/alumni/chunmyeong.png";
 import samsung from "public/images/alumni/samsung.jpg";
 import kakao from "public/images/alumni/kakao.png";
-import mesher from "public/images/alumni/mesher.jpg";
+import mesher from "public/images/alumni/mesher.png";
 import taling from "public/images/alumni/taling.png";
 import dreamary from "public/images/alumni/dreamary.png";
 import kakaoEnter from "public/images/alumni/kakao-enter.jpeg";
