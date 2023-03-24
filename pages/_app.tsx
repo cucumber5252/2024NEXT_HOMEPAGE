@@ -7,9 +7,10 @@ import { RecoilRoot } from "recoil";
 import { useRouter, Router } from "next/router";
 import { ChakraProvider } from "@chakra-ui/react";
 import Loading from "components/loading/index";
-// import * as gtag from "libs/gtag";
+import * as gtag from "lib/gtag";
 import Head from "next/head";
 import Header from "components/header";
+import Script from "next/script";
 import NProgress from "nprogress";
 import "nprogress/nprogress.css";
 // export default function App({ Component, pageProps, session }: AppProps) {
@@ -39,20 +40,20 @@ export default function App({
       Router.events.off("routeChangeError", end);
     };
   }, []);
-  // // GA 설정 시작
-  // const router = useRouter();
-  // useEffect(() => {
-  //   const handleRouteChange = (url: any) => {
-  //     gtag.pageview(url);
-  //   };
-  //   router.events.on("routeChangeComplete", handleRouteChange);
-  //   router.events.on("hashChangeComplete", handleRouteChange);
-  //   return () => {
-  //     router.events.off("routeChangeComplete", handleRouteChange);
-  //     router.events.off("hashChangeComplete", handleRouteChange);
-  //   };
-  // }, [router.events]);
-  // // GA 설정 끝
+  // GA 설정 시작
+  const router = useRouter();
+  useEffect(() => {
+    const handleRouteChange = (url: any) => {
+      gtag.pageview(url);
+    };
+    router.events.on("routeChangeComplete", handleRouteChange);
+    router.events.on("hashChangeComplete", handleRouteChange);
+    return () => {
+      router.events.off("routeChangeComplete", handleRouteChange);
+      router.events.off("hashChangeComplete", handleRouteChange);
+    };
+  }, [router.events]);
+  // GA 설정 끝
   return (
     <SessionProvider session={pageProps.session}>
       <RecoilRoot>
@@ -64,15 +65,15 @@ export default function App({
             <Header></Header>
             {/* GA 설정 시작 */}
             {/* Global Site Tag (gtag.js) - Google Analytics */}
-            {/* <Script
-            strategy="afterInteractive"
-            src={`https://www.googletagmanager.com/gtag/js?id=${gtag.GA_TRACKING_ID}`}
-          />
-          <Script
-            id="gtag-init"
-            strategy="afterInteractive"
-            dangerouslySetInnerHTML={{
-              __html: `
+            <Script
+              strategy="afterInteractive"
+              src={`https://www.googletagmanager.com/gtag/js?id=${gtag.GA_TRACKING_ID}`}
+            />
+            <Script
+              id="gtag-init"
+              strategy="afterInteractive"
+              dangerouslySetInnerHTML={{
+                __html: `
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
@@ -80,8 +81,8 @@ export default function App({
           page_path: window.location.pathname,
         });
       `,
-            }}
-          /> */}
+              }}
+            />
             {/* GA 설정 끝 */}
             {loading ? <Loading /> : <Component {...pageProps} />}
             {/* <Loading /> */}
