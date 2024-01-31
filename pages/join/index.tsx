@@ -73,7 +73,7 @@ export default function Join() {
             <S.TitleWrapper isMobile={isMobile}>
               <img src={Text.src} />
               <img src={Logo.src} />
-              <p>11기 모집</p>
+              <p>12기 모집</p>
               <S.RocketInfo>
                 <p>로켓을 클릭해보세요!</p>
               </S.RocketInfo>
@@ -100,7 +100,7 @@ export default function Join() {
               <S.ModalContentWrapper>
                 {modalPage == 1 && (
                   <S.InfoModal>
-                    <h2>11기 지원 안내</h2>
+                    <h2>12기 지원 안내</h2>
                     <br />
                     <p>
                       <span>1. 지원방식</span>

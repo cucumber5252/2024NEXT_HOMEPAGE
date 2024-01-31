@@ -8,8 +8,10 @@ import { useRouter } from "next/router";
 import { Tabs } from "antd";
 import { PEOPLE_ITEMS } from "constants/people";
 import Member from "./components/Member";
+import { PEOPLE_INFORMATION } from "constants/people";
+import Cardnews from "./components/Cardnews";
 
-const { TEN } = PEOPLE_ITEMS;
+const { TEN, ELEVEN } = PEOPLE_ITEMS;
 
 export default function People() {
   const router = useRouter();
@@ -39,9 +41,31 @@ export default function People() {
             centered
             items={[
               {
-                label: `${TEN}기`,
+                label: `${ELEVEN}기`,
                 key: "1",
-                children: <Member />,
+                children: (
+                  <Member
+                    peopleInformation={PEOPLE_INFORMATION.filter(
+                      (item) => item.gen === 11
+                    )}
+                  />
+                ),
+              },
+              {
+                label: `${TEN}기`,
+                key: "2",
+                children: (
+                  <Member
+                    peopleInformation={PEOPLE_INFORMATION.filter(
+                      (item) => item.gen === 10
+                    )}
+                  />
+                ),
+              },
+              {
+                label: "Alumni",
+                key: "3",
+                children: <Cardnews />,
               },
             ]}
           />

@@ -45,7 +45,7 @@ export const Text = styled.div`
   animation: ${blink} 0.5s infinite alternate;
 `;
 export const SpinnerWrapper = styled.div`
-  width: 10rem;
+  width: 6rem;
   animation: ${spin} 1s infinite;
   & img {
     width: 100%;
